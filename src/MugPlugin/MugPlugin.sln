@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MugPlugin.View", "MugPlugin.View\MugPlugin.View.csproj", "{46FD12EE-9D0C-4847-88BE-6F1C569BCC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MugPlugin.Model", "MugPlugin.Model\MugPlugin.Model.csproj", "{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46FD12EE-9D0C-4847-88BE-6F1C569BCC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46FD12EE-9D0C-4847-88BE-6F1C569BCC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46FD12EE-9D0C-4847-88BE-6F1C569BCC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46FD12EE-9D0C-4847-88BE-6F1C569BCC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {466F3524-8028-47B0-8EBD-A22CA7744DD7}
+	EndGlobalSection
+EndGlobal
