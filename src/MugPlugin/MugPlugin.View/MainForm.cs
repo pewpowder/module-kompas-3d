@@ -53,6 +53,8 @@ namespace MugPlugin.View
                 try
                 {
                     Parameters.SetParameterValue(type, value);
+                    errorProvider.Clear();
+
                 }
                 catch (Exception error)
                 {
