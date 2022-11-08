@@ -9,63 +9,59 @@ namespace MugPlugin.Model
     public class MugParameter
     {
         /// <summary>
-        ///  Значение параметра.
+        /// Parameter value.
         /// </summary>
         private double _value;
 
         /// <summary>
-        /// Устанавливает и возвращает значение параметра.
+        /// Sets and returns the value of a parameter.
         /// </summary>
         public double Value
         {
             get => _value;
-            set 
+            set
             {
-                if(IsRangeOut(value))
+                if (IsRangeOut(value))
                 {
-                    throw new ArgumentException($"Value must be between {MinValue} and {MaxValue}");
+                    throw new ArgumentException($"Value must be between {_minValue} and {_maxValue}");
                 }
                 _value = value;
             }
         }
 
         /// <summary>
-        /// Получить минимальное допустимое значение параметра.
+        /// Get the minimum allowed parameter value.
         /// </summary>
-        public double MinValue {  get; }
-        
+        private readonly double _minValue;
+
         /// <summary>
-        /// Получить максимальное допустимое значение параметра.
+        /// Get the maximum allowed parameter value.
         /// </summary>
-        public double MaxValue { get; }
+        private readonly double _maxValue;
 
 
         /// <summary>
-        /// Конструктор MugParamter.
+        /// MugParameter constructor.
         /// </summary>
-        /// <param name="value">Значение параметра.</param>
-        /// <param name="minValue">Минимальное допустимое значение параметра.</param>
-        /// <param name="maxValue">Максимальное допустимое значение параметра.</param>
-        public MugParameter(double minValue, double maxValue)
+        /// <param name="value">Parameter value.</param>
+        /// <param name="minValue">Minimum allowed parameter value.</param>
+        /// <param name="maxValue">Maximum allowed parameter value.</param>
+        public MugParameter(double value, double minValue, double maxValue)
         {
-            MinValue = minValue;
-            MaxValue = maxValue;
+            _minValue = minValue;
+            _maxValue = maxValue;
+            Value = value;
         }
 
 
         /// <summary>
-        /// Проверка не выходит ли параметр за диапазон допустимых значений.
+        /// Checking if the parameter is out of range of valid values.
         /// </summary>
-        /// <param name="value">Значение параметра.</param>
+        /// <param name="value">Parameter value.</param>
         /// <returns></returns>
         private bool IsRangeOut(double value)
         {
-            if(value < MinValue || value > MaxValue)
-            {
-                return true;
-            } 
-
-            return false;
+            return value < _minValue || value > _maxValue;
         }
     }
 }

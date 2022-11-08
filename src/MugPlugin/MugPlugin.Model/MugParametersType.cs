@@ -7,32 +7,32 @@ using System.Threading.Tasks;
 namespace MugPlugin.Model
 {
     /// <summary>
-    /// Перечисление параметров кружки.
+    /// Enumeration of mug parameters.
     /// </summary>
     public enum MugParametersType
     {
         /// <summary>
-        /// Диаметер горла кружки.
+        /// Mug neck diameter.
         /// </summary>
         Diameter,
 
         /// <summary>
-        /// Высота кружки.
+        /// Mug height.
         /// </summary>
         Height,
 
         /// <summary>
-        /// Толщина стенок кружки.
+        /// Mug wall thickness.
         /// </summary>
         Thickness,
 
         /// <summary>
-        /// Длина ручки кружки.
+        /// Mug handle length.
         /// </summary>
         HandleLength,
 
         /// <summary>
-        /// Диаметер внутренней части ручки.
+        /// Mug handle diameter.
         /// </summary>
         HandleDiameter
     }

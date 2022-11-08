@@ -34,14 +34,14 @@
             this.handleLengthRangeLabel = new System.Windows.Forms.Label();
             this.handleDiameterRangeLabel = new System.Windows.Forms.Label();
             this.thicknessRangeLabel = new System.Windows.Forms.Label();
-            this.handleDiameterLabel = new System.Windows.Forms.Label();
             this.handleLengthLabel = new System.Windows.Forms.Label();
+            this.handleDiameterLabel = new System.Windows.Forms.Label();
             this.heightLabel = new System.Windows.Forms.Label();
             this.thicknessLabel = new System.Windows.Forms.Label();
             this.diameterRangeLabel = new System.Windows.Forms.Label();
             this.diameterLabel = new System.Windows.Forms.Label();
-            this.handleLength = new System.Windows.Forms.TextBox();
             this.handleDiameter = new System.Windows.Forms.TextBox();
+            this.handleLength = new System.Windows.Forms.TextBox();
             this.thickness = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.TextBox();
             this.diameter = new System.Windows.Forms.TextBox();
@@ -66,21 +66,21 @@
             this.MugParameters.Controls.Add(this.handleLengthRangeLabel);
             this.MugParameters.Controls.Add(this.handleDiameterRangeLabel);
             this.MugParameters.Controls.Add(this.thicknessRangeLabel);
-            this.MugParameters.Controls.Add(this.handleDiameterLabel);
             this.MugParameters.Controls.Add(this.handleLengthLabel);
+            this.MugParameters.Controls.Add(this.handleDiameterLabel);
             this.MugParameters.Controls.Add(this.heightLabel);
             this.MugParameters.Controls.Add(this.thicknessLabel);
             this.MugParameters.Controls.Add(this.diameterRangeLabel);
             this.MugParameters.Controls.Add(this.diameterLabel);
-            this.MugParameters.Controls.Add(this.handleLength);
             this.MugParameters.Controls.Add(this.handleDiameter);
+            this.MugParameters.Controls.Add(this.handleLength);
             this.MugParameters.Controls.Add(this.thickness);
             this.MugParameters.Controls.Add(this.height);
             this.MugParameters.Controls.Add(this.diameter);
             this.MugParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MugParameters.Location = new System.Drawing.Point(12, 12);
             this.MugParameters.Name = "MugParameters";
-            this.MugParameters.Size = new System.Drawing.Size(288, 235);
+            this.MugParameters.Size = new System.Drawing.Size(304, 235);
             this.MugParameters.TabIndex = 0;
             this.MugParameters.TabStop = false;
             this.MugParameters.Text = "Mug Parameters";
@@ -93,27 +93,27 @@
             this.heightRangeLabel.Name = "heightRangeLabel";
             this.heightRangeLabel.Size = new System.Drawing.Size(165, 15);
             this.heightRangeLabel.TabIndex = 23;
-            this.heightRangeLabel.Text = "(min - 85mm, max - 105mm)";
+            this.heightRangeLabel.Text = "(min - 85mm, max - 130mm)";
             // 
             // handleLengthRangeLabel
             // 
             this.handleLengthRangeLabel.AutoSize = true;
             this.handleLengthRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleLengthRangeLabel.Location = new System.Drawing.Point(117, 160);
+            this.handleLengthRangeLabel.Location = new System.Drawing.Point(117, 201);
             this.handleLengthRangeLabel.Name = "handleLengthRangeLabel";
-            this.handleLengthRangeLabel.Size = new System.Drawing.Size(158, 15);
+            this.handleLengthRangeLabel.Size = new System.Drawing.Size(185, 15);
             this.handleLengthRangeLabel.TabIndex = 21;
-            this.handleLengthRangeLabel.Text = "(min - 30mm, max - 46mm)";
+            this.handleLengthRangeLabel.Text = "(min - 29.75mm, max - 45.5mm)";
             // 
             // handleDiameterRangeLabel
             // 
             this.handleDiameterRangeLabel.AutoSize = true;
             this.handleDiameterRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(117, 198);
+            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(117, 160);
             this.handleDiameterRangeLabel.Name = "handleDiameterRangeLabel";
-            this.handleDiameterRangeLabel.Size = new System.Drawing.Size(158, 15);
+            this.handleDiameterRangeLabel.Size = new System.Drawing.Size(168, 15);
             this.handleDiameterRangeLabel.TabIndex = 19;
-            this.handleDiameterRangeLabel.Text = "(min - 60mm, max - 92mm)";
+            this.handleDiameterRangeLabel.Text = "(min - 59.5mm, max - 91mm)";
             // 
             // thicknessRangeLabel
             // 
@@ -125,23 +125,23 @@
             this.thicknessRangeLabel.TabIndex = 17;
             this.thicknessRangeLabel.Text = "(min - 5mm, max - 10mm)";
             // 
-            // handleDiameterLabel
-            // 
-            this.handleDiameterLabel.AutoSize = true;
-            this.handleDiameterLabel.Location = new System.Drawing.Point(6, 180);
-            this.handleDiameterLabel.Name = "handleDiameterLabel";
-            this.handleDiameterLabel.Size = new System.Drawing.Size(101, 15);
-            this.handleDiameterLabel.TabIndex = 15;
-            this.handleDiameterLabel.Text = "Handle Diameter";
-            // 
             // handleLengthLabel
             // 
             this.handleLengthLabel.AutoSize = true;
-            this.handleLengthLabel.Location = new System.Drawing.Point(6, 139);
+            this.handleLengthLabel.Location = new System.Drawing.Point(6, 180);
             this.handleLengthLabel.Name = "handleLengthLabel";
             this.handleLengthLabel.Size = new System.Drawing.Size(88, 15);
-            this.handleLengthLabel.TabIndex = 13;
+            this.handleLengthLabel.TabIndex = 15;
             this.handleLengthLabel.Text = "Handle Length";
+            // 
+            // handleDiameterLabel
+            // 
+            this.handleDiameterLabel.AutoSize = true;
+            this.handleDiameterLabel.Location = new System.Drawing.Point(6, 139);
+            this.handleDiameterLabel.Name = "handleDiameterLabel";
+            this.handleDiameterLabel.Size = new System.Drawing.Size(101, 15);
+            this.handleDiameterLabel.TabIndex = 13;
+            this.handleDiameterLabel.Text = "Handle Diameter";
             // 
             // heightLabel
             // 
@@ -180,23 +180,23 @@
             this.diameterLabel.TabIndex = 5;
             this.diameterLabel.Text = "Diameter";
             // 
-            // handleLength
-            // 
-            this.handleLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.handleLength.Location = new System.Drawing.Point(3, 157);
-            this.handleLength.Name = "handleLength";
-            this.handleLength.Size = new System.Drawing.Size(98, 20);
-            this.handleLength.TabIndex = 4;
-            this.handleLength.Leave += new System.EventHandler(this.SetParameter);
-            // 
             // handleDiameter
             // 
             this.handleDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.handleDiameter.Location = new System.Drawing.Point(3, 198);
+            this.handleDiameter.Location = new System.Drawing.Point(3, 157);
             this.handleDiameter.Name = "handleDiameter";
             this.handleDiameter.Size = new System.Drawing.Size(98, 20);
-            this.handleDiameter.TabIndex = 3;
+            this.handleDiameter.TabIndex = 4;
             this.handleDiameter.Leave += new System.EventHandler(this.SetParameter);
+            // 
+            // handleLength
+            // 
+            this.handleLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.handleLength.Location = new System.Drawing.Point(3, 198);
+            this.handleLength.Name = "handleLength";
+            this.handleLength.Size = new System.Drawing.Size(98, 20);
+            this.handleLength.TabIndex = 3;
+            this.handleLength.Leave += new System.EventHandler(this.SetParameter);
             // 
             // thickness
             // 
@@ -235,7 +235,7 @@
             this.DefaultParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DefaultParameters.Location = new System.Drawing.Point(12, 253);
             this.DefaultParameters.Name = "DefaultParameters";
-            this.DefaultParameters.Size = new System.Drawing.Size(288, 140);
+            this.DefaultParameters.Size = new System.Drawing.Size(304, 140);
             this.DefaultParameters.TabIndex = 1;
             this.DefaultParameters.TabStop = false;
             this.DefaultParameters.Text = "Default Parameters";
@@ -248,6 +248,7 @@
             this.setParametersAvg.TabIndex = 24;
             this.setParametersAvg.Text = "Average";
             this.setParametersAvg.UseVisualStyleBackColor = true;
+            this.setParametersAvg.Click += new System.EventHandler(this.SetAvgParameters);
             // 
             // setParametersMax
             // 
@@ -257,6 +258,7 @@
             this.setParametersMax.TabIndex = 3;
             this.setParametersMax.Text = "Maximum";
             this.setParametersMax.UseVisualStyleBackColor = true;
+            this.setParametersMax.Click += new System.EventHandler(this.SetMaxParameters);
             // 
             // setParametersMin
             // 
@@ -266,24 +268,26 @@
             this.setParametersMin.TabIndex = 25;
             this.setParametersMin.Text = "Minimum";
             this.setParametersMin.UseVisualStyleBackColor = true;
+            this.setParametersMin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetMinParameters);
             // 
             // mugScheme
             // 
             this.mugScheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mugScheme.Location = new System.Drawing.Point(306, 12);
+            this.mugScheme.Location = new System.Drawing.Point(322, 12);
             this.mugScheme.Name = "mugScheme";
-            this.mugScheme.Size = new System.Drawing.Size(288, 332);
+            this.mugScheme.Size = new System.Drawing.Size(272, 332);
             this.mugScheme.TabIndex = 2;
             this.mugScheme.TabStop = false;
             // 
             // build
             // 
-            this.build.Location = new System.Drawing.Point(306, 350);
+            this.build.Location = new System.Drawing.Point(322, 350);
             this.build.Name = "build";
-            this.build.Size = new System.Drawing.Size(288, 33);
+            this.build.Size = new System.Drawing.Size(272, 33);
             this.build.TabIndex = 26;
             this.build.Text = "Build";
             this.build.UseVisualStyleBackColor = true;
+            this.build.Click += new System.EventHandler(this.build_click);
             // 
             // errorProvider
             // 
@@ -301,6 +305,7 @@
             this.MinimumSize = new System.Drawing.Size(622, 444);
             this.Name = "MainForm";
             this.Text = "MugPlugin";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MugParameters.ResumeLayout(false);
             this.MugParameters.PerformLayout();
             this.DefaultParameters.ResumeLayout(false);
@@ -317,14 +322,14 @@
         private System.Windows.Forms.Label handleLengthRangeLabel;
         private System.Windows.Forms.Label handleDiameterRangeLabel;
         private System.Windows.Forms.Label thicknessRangeLabel;
-        private System.Windows.Forms.Label handleDiameterLabel;
         private System.Windows.Forms.Label handleLengthLabel;
+        private System.Windows.Forms.Label handleDiameterLabel;
         private System.Windows.Forms.Label heightLabel;
         private System.Windows.Forms.Label thicknessLabel;
         private System.Windows.Forms.Label diameterRangeLabel;
         private System.Windows.Forms.Label diameterLabel;
-        private System.Windows.Forms.TextBox handleLength;
         private System.Windows.Forms.TextBox handleDiameter;
+        private System.Windows.Forms.TextBox handleLength;
         private System.Windows.Forms.TextBox thickness;
         private System.Windows.Forms.TextBox height;
         private System.Windows.Forms.TextBox diameter;

@@ -9,7 +9,7 @@ namespace MugPlugin.View
     internal static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// Main entry point to the application.
         /// </summary>
         [STAThread]
         static void Main()
