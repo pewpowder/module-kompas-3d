@@ -11,23 +11,24 @@ namespace MugPlugin.View
         /// <summary>
         /// Mug parameters.
         /// </summary>
-        private readonly MugParameters Parameters;
+        private readonly MugParameters _parameters;
 
         /// <summary>
         /// Stores a text field and its error.
         /// </summary>
-        private readonly Dictionary<TextBox, string> TextBoxAndError;
+        private readonly Dictionary<TextBox, string> _textBoxAndError;
 
         /// <summary>
         /// Stores a text field and its corresponding parameter type.
         /// </summary>
-        private readonly Dictionary<TextBox, MugParametersType> TextBoxToParameterType;
+        private readonly Dictionary<TextBox, MugParametersType> _textBoxToParameterType;
+
 
         public MainForm()
         {
             InitializeComponent();
-            Parameters = new MugParameters();
-            TextBoxToParameterType = new Dictionary<TextBox, MugParametersType>
+            _parameters = new MugParameters();
+            _textBoxToParameterType = new Dictionary<TextBox, MugParametersType>
             {
                 { diameter, MugParametersType.Diameter },
                 { height, MugParametersType.Height },
@@ -35,7 +36,7 @@ namespace MugPlugin.View
                 { handleDiameter, MugParametersType.HandleLength },
                 { handleLength, MugParametersType.HandleDiameter }
             };
-            TextBoxAndError = new Dictionary<TextBox, string>
+            _textBoxAndError = new Dictionary<TextBox, string>
             {
                 { diameter, "" },
                 { height, "" },
@@ -52,7 +53,8 @@ namespace MugPlugin.View
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SetDefaultValues(87, 95, 7, 33.25, 66.5);
+            var dependentValues = _parameters.GetDependentValues(95);
+            SetDefaultValues(87, 95, 7, dependentValues[1], dependentValues[0]);
         }
 
         /// <summary>
@@ -63,22 +65,29 @@ namespace MugPlugin.View
         private void SetParameter(object sender, EventArgs e)
         {
             var textBox = sender as TextBox;
-            var isType = TextBoxToParameterType.TryGetValue(textBox, out var type);
-            double.TryParse(textBox.Text, out var value);
+            var isType = _textBoxToParameterType.TryGetValue(textBox, out var type);
+            var textValue = textBox.Text.Replace('.', ',');
+            double.TryParse(textValue, out var value);
+            value = Math.Round(value, 1);
 
             if (!isType) return;
 
             try
             {
-                Parameters.SetParameterValue(type, value);
-                TextBoxAndError[textBox] = "";
+                _parameters.SetParameterValue(type, value);
+                _textBoxAndError[textBox] = "";
                 errorProvider.Clear();
             }
             catch (Exception error)
             {
-                TextBoxAndError[textBox] = error.Message;
+                _textBoxAndError[textBox] = error.Message;
                 errorProvider.SetError(textBox, error.Message);
             }
+        }
+
+        private string ReplaceDotWithComma(string value)
+        {
+            return value.Replace('.', ',');
         }
 
         /// <summary>
@@ -96,7 +105,8 @@ namespace MugPlugin.View
         /// </summary>
         private void SetMinParameters(object sender, MouseEventArgs e)
         {
-            SetDefaultValues(70, 85, 5, 29.75, 59.5);
+            var dependentValues = _parameters.GetDependentValues(85);
+            SetDefaultValues(70, 85, 5, dependentValues[1], dependentValues[0]);
         }
 
         /// <summary>
@@ -104,7 +114,8 @@ namespace MugPlugin.View
         /// </summary>
         private void SetAvgParameters(object sender, EventArgs e)
         {
-            SetDefaultValues(87, 95, 7, 33.25, 66.5);
+            var dependentValues = _parameters.GetDependentValues(95);
+            SetDefaultValues(87, 95, 7, dependentValues[1], dependentValues[0]);
         }
 
         /// <summary>
@@ -112,7 +123,8 @@ namespace MugPlugin.View
         /// </summary>
         private void SetMaxParameters(object sender, EventArgs e)
         {
-            SetDefaultValues(105, 130, 10, 45.5, 91);
+            var dependentValues = _parameters.GetDependentValues(130);
+            SetDefaultValues(105, 130, 10, dependentValues[1], dependentValues[0]);
         }
 
         /// <summary>
@@ -126,11 +138,11 @@ namespace MugPlugin.View
         private void SetDefaultValues(double diameterValue, double heightValue,
             double thicknessValue, double handleLengthValue, double handleDiameterValue)
         {
-            Parameters.SetParameterValue(MugParametersType.Diameter, diameterValue);
-            Parameters.SetParameterValue(MugParametersType.Height, heightValue);
-            Parameters.SetParameterValue(MugParametersType.Thickness, thicknessValue);
-            Parameters.SetParameterValue(MugParametersType.HandleDiameter, handleDiameterValue);
-            Parameters.SetParameterValue(MugParametersType.HandleLength, handleLengthValue);
+            _parameters.SetParameterValue(MugParametersType.Diameter, diameterValue);
+            _parameters.SetParameterValue(MugParametersType.Height, heightValue);
+            _parameters.SetParameterValue(MugParametersType.Thickness, thicknessValue);
+            _parameters.SetParameterValue(MugParametersType.HandleDiameter, handleDiameterValue);
+            _parameters.SetParameterValue(MugParametersType.HandleLength, handleLengthValue);
 
             diameter.Text = diameterValue.ToString();
             height.Text = heightValue.ToString();
@@ -147,7 +159,7 @@ namespace MugPlugin.View
         {
             var isError = true;
             foreach (var item in 
-                     TextBoxAndError.Where(item => item.Value != ""))
+                     _textBoxAndError.Where(item => item.Value != ""))
             {
                 isError = false;
                 errorProvider.SetError(item.Key, item.Value);
@@ -165,7 +177,8 @@ namespace MugPlugin.View
         {
             if (CheckTextBoxes())
             {
-                // Call build method
+                var builder = new MugBuilder();
+                builder.BuildMug(_parameters);
             }
             else
             {

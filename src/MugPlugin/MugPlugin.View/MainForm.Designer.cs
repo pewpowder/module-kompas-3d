@@ -83,7 +83,7 @@
             this.MugParameters.Size = new System.Drawing.Size(304, 235);
             this.MugParameters.TabIndex = 0;
             this.MugParameters.TabStop = false;
-            this.MugParameters.Text = "Mug Parameters";
+            this.MugParameters.Text = "Mug _parameters";
             // 
             // heightRangeLabel
             // 
@@ -99,7 +99,7 @@
             // 
             this.handleLengthRangeLabel.AutoSize = true;
             this.handleLengthRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleLengthRangeLabel.Location = new System.Drawing.Point(117, 201);
+            this.handleLengthRangeLabel.Location = new System.Drawing.Point(113, 160);
             this.handleLengthRangeLabel.Name = "handleLengthRangeLabel";
             this.handleLengthRangeLabel.Size = new System.Drawing.Size(185, 15);
             this.handleLengthRangeLabel.TabIndex = 21;
@@ -109,7 +109,7 @@
             // 
             this.handleDiameterRangeLabel.AutoSize = true;
             this.handleDiameterRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(117, 160);
+            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(117, 201);
             this.handleDiameterRangeLabel.Name = "handleDiameterRangeLabel";
             this.handleDiameterRangeLabel.Size = new System.Drawing.Size(168, 15);
             this.handleDiameterRangeLabel.TabIndex = 19;
@@ -238,7 +238,7 @@
             this.DefaultParameters.Size = new System.Drawing.Size(304, 140);
             this.DefaultParameters.TabIndex = 1;
             this.DefaultParameters.TabStop = false;
-            this.DefaultParameters.Text = "Default Parameters";
+            this.DefaultParameters.Text = "Default _parameters";
             // 
             // setParametersAvg
             // 

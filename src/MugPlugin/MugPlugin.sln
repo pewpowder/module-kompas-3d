@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MugPlugin.View", "MugPlugin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MugPlugin.Model", "MugPlugin.Model\MugPlugin.Model.csproj", "{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MugPlugin.Wrapper", "MugPlugin.Wrapper\MugPlugin.Wrapper.csproj", "{6BF927E7-3CCC-41B7-8F35-3ED750D4047F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFFA5D46-8C58-4E5E-94A4-79A828150BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF927E7-3CCC-41B7-8F35-3ED750D4047F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF927E7-3CCC-41B7-8F35-3ED750D4047F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF927E7-3CCC-41B7-8F35-3ED750D4047F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF927E7-3CCC-41B7-8F35-3ED750D4047F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -84,6 +84,10 @@
       <Project>{affa5d46-8c58-4e5e-94a4-79a828150bf5}</Project>
       <Name>MugPlugin.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MugPlugin.Wrapper\MugPlugin.Wrapper.csproj">
+      <Project>{6bf927e7-3ccc-41b7-8f35-3ed750d4047f}</Project>
+      <Name>MugPlugin.Wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
