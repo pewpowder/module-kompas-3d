@@ -35,8 +35,8 @@ namespace MugPlugin.View
                 { diameter, MugParametersType.Diameter },
                 { height, MugParametersType.Height },
                 { thickness, MugParametersType.Thickness },
-                { handleDiameter, MugParametersType.HandleLength },
-                { handleLength, MugParametersType.HandleDiameter }
+                { handleDiameter, MugParametersType.HandleDiameter },
+                { handleLength, MugParametersType.HandleLength }
             };
             _textBoxAndError = new Dictionary<TextBox, string>
             {

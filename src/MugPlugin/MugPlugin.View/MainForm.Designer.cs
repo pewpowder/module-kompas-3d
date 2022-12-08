@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MugParameters = new System.Windows.Forms.GroupBox();
             this.heightRangeLabel = new System.Windows.Forms.Label();
             this.handleLengthRangeLabel = new System.Windows.Forms.Label();
@@ -80,7 +81,7 @@
             this.MugParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MugParameters.Location = new System.Drawing.Point(12, 12);
             this.MugParameters.Name = "MugParameters";
-            this.MugParameters.Size = new System.Drawing.Size(304, 235);
+            this.MugParameters.Size = new System.Drawing.Size(300, 235);
             this.MugParameters.TabIndex = 0;
             this.MugParameters.TabStop = false;
             this.MugParameters.Text = "Mug _parameters";
@@ -235,7 +236,7 @@
             this.DefaultParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DefaultParameters.Location = new System.Drawing.Point(12, 253);
             this.DefaultParameters.Name = "DefaultParameters";
-            this.DefaultParameters.Size = new System.Drawing.Size(304, 140);
+            this.DefaultParameters.Size = new System.Drawing.Size(300, 140);
             this.DefaultParameters.TabIndex = 1;
             this.DefaultParameters.TabStop = false;
             this.DefaultParameters.Text = "Default _parameters";
@@ -272,10 +273,12 @@
             // 
             // mugScheme
             // 
+            this.mugScheme.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mugScheme.BackgroundImage")));
+            this.mugScheme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mugScheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mugScheme.Location = new System.Drawing.Point(322, 12);
             this.mugScheme.Name = "mugScheme";
-            this.mugScheme.Size = new System.Drawing.Size(272, 332);
+            this.mugScheme.Size = new System.Drawing.Size(319, 332);
             this.mugScheme.TabIndex = 2;
             this.mugScheme.TabStop = false;
             // 
@@ -283,7 +286,7 @@
             // 
             this.build.Location = new System.Drawing.Point(322, 350);
             this.build.Name = "build";
-            this.build.Size = new System.Drawing.Size(272, 33);
+            this.build.Size = new System.Drawing.Size(319, 33);
             this.build.TabIndex = 26;
             this.build.Text = "Build";
             this.build.UseVisualStyleBackColor = true;
@@ -297,12 +300,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 405);
+            this.ClientSize = new System.Drawing.Size(653, 405);
             this.Controls.Add(this.build);
             this.Controls.Add(this.mugScheme);
             this.Controls.Add(this.DefaultParameters);
             this.Controls.Add(this.MugParameters);
-            this.MinimumSize = new System.Drawing.Size(622, 444);
+            this.MaximumSize = new System.Drawing.Size(669, 444);
+            this.MinimumSize = new System.Drawing.Size(669, 444);
             this.Name = "MainForm";
             this.Text = "MugPlugin";
             this.Load += new System.EventHandler(this.SetDefaultParameters);
