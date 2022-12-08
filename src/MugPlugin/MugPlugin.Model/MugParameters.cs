@@ -27,8 +27,14 @@ namespace MugPlugin.Model
                 { MugParametersType.Diameter, new MugParameter(87, 70, 105) },
                 { MugParametersType.Height, new MugParameter(95, 85, 130) },
                 { MugParametersType.Thickness, new MugParameter(7, 5, 10) },
-                { MugParametersType.HandleDiameter, new MugParameter(avgDependentValues[0], minDependentValues[0], maxDependentValues[0]) },
-                { MugParametersType.HandleLength, new MugParameter(avgDependentValues[1], minDependentValues[1], maxDependentValues[1]) },
+                {
+                    MugParametersType.HandleDiameter,
+                    new MugParameter(avgDependentValues[0], minDependentValues[0], maxDependentValues[0])
+                },
+                {
+                    MugParametersType.HandleLength,
+                    new MugParameter(avgDependentValues[1], minDependentValues[1], maxDependentValues[1])
+                },
             };
         }
 
@@ -39,8 +45,7 @@ namespace MugPlugin.Model
         /// <param name="value"></param>
         public void SetParameterValue(MugParametersType type, double value)
         {
-            if (!_parameters.TryGetValue(type, out var parameter)) return;
-
+            var parameter = _parameters[type];
             CheckDependencies(type, value);
             parameter.Value = value;
         }
@@ -53,19 +58,15 @@ namespace MugPlugin.Model
         /// <exception cref="Exception">If parameter value does not exist.</exception>
         public double GetParameterValue(MugParametersType type)
         {
-            if (_parameters.TryGetValue(type, out var parameter))
-            {
-                return parameter.Value;
-            }
-            throw new ArgumentException("Parameter does not exist.");
+            return _parameters[type].Value;
         }
 
         public double[] GetDependentValues(double height)
         {
-            double[] dependentValues = new double[]
+            var dependentValues = new double[]
             {
                 Math.Round(height * 0.7, 1),
-                Math.Round(height * 0.7 * 0.5, 1),
+                Math.Round(height * 0.7 * 0.5, 1)
             };
             return dependentValues;
         }
@@ -80,29 +81,22 @@ namespace MugPlugin.Model
         {
             _parameters.TryGetValue(MugParametersType.Height, out var parameter);
             var dependentValues = GetDependentValues(parameter.Value);
-            switch (type)
+
+            if (type == MugParametersType.HandleLength)
             {
-                case MugParametersType.HandleLength:
+                if (value != dependentValues[1])
                 {
-                    if (value != dependentValues[1])
-                    {
-                        throw new ArgumentOutOfRangeException(
-                            "Handle diameter depends on the handle length in the ratio (Handle diameter * 0.5)");
-                    }
-                    break;
+                    throw new ArgumentOutOfRangeException(
+                        "Handle diameter depends on the handle length in the ratio (Handle diameter * 0.5)");
                 }
-                case MugParametersType.HandleDiameter:
+            }
+
+            if (type == MugParametersType.HandleDiameter)
+            {
+                if (value != dependentValues[0])
                 {
-                    if (value != dependentValues[0])
-                    {
-                        throw new ArgumentOutOfRangeException(
-                            "Handle length depends on the handle diameter in the ratio (Height * 0.7)");
-                    }
-                    break;
-                }
-                default:
-                {
-                    return;
+                    throw new ArgumentOutOfRangeException(
+                        "Handle length depends on the handle diameter in the ratio (Height * 0.7)");
                 }
             }
         }

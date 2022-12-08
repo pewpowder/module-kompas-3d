@@ -19,13 +19,13 @@ namespace MugPlugin.Model
 
             var mugRadius = mugParameters.GetParameterValue(MugParametersType.Diameter) / 2;
             var mugHeight = mugParameters.GetParameterValue(MugParametersType.Height);
-            var mugThickness = mugParameters.GetParameterValue(MugParametersType.Thickness) / 2;
+            var mugThickness = (mugParameters.GetParameterValue(MugParametersType.Thickness) + 1) / 2;
             var mugHandleLength = mugParameters.GetParameterValue(MugParametersType.HandleLength);
             var mugHandleDiameter = mugParameters.GetParameterValue(MugParametersType.HandleDiameter) / 3;
             CreateMugBody(mugRadius, mugHeight, mugThickness);
             CreateMugHandle(mugRadius, mugHeight, mugHandleDiameter, mugHandleLength);
 
-            _wrapper.Fillet(mugThickness / 2.5);
+            _wrapper.Fillet(mugThickness / 2);
         }
 
 

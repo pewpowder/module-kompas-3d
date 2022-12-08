@@ -110,8 +110,8 @@ namespace MugPlugin.View
             diameter.Text = diameterValue.ToString();
             height.Text = heightValue.ToString();
             thickness.Text = thicknessValue.ToString();
-            handleDiameter.Text = handleLengthValue.ToString();
-            handleLength.Text = handleDiameterValue.ToString();
+            handleDiameter.Text = handleDiameterValue.ToString();
+            handleLength.Text = handleLengthValue.ToString();
         }
 
         /// <summary>
