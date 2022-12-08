@@ -47,17 +47,6 @@ namespace MugPlugin.View
         }
 
         /// <summary>
-        /// Sets default values ​​on form load.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            var dependentValues = _parameters.GetDependentValues(95);
-            SetDefaultValues(87, 95, 7, dependentValues[1], dependentValues[0]);
-        }
-
-        /// <summary>
         /// Sets parameter value.
         /// </summary>
         /// <param name="sender"></param>
@@ -78,10 +67,10 @@ namespace MugPlugin.View
                 _textBoxAndError[textBox] = "";
                 errorProvider.Clear();
             }
-            catch (Exception error)
+            catch (ArgumentOutOfRangeException error)
             {
-                _textBoxAndError[textBox] = error.Message;
-                errorProvider.SetError(textBox, error.Message);
+                _textBoxAndError[textBox] = error.ParamName;
+                errorProvider.SetError(textBox, error.ParamName);
             }
         }
 
@@ -100,32 +89,6 @@ namespace MugPlugin.View
             ((TextBox)sender).Text = "";
         }
 
-        /// <summary>
-        /// Sets the minimum parameters of the mug.
-        /// </summary>
-        private void SetMinParameters(object sender, MouseEventArgs e)
-        {
-            var dependentValues = _parameters.GetDependentValues(85);
-            SetDefaultValues(70, 85, 5, dependentValues[1], dependentValues[0]);
-        }
-
-        /// <summary>
-        /// Sets the average parameters of the mug.
-        /// </summary>
-        private void SetAvgParameters(object sender, EventArgs e)
-        {
-            var dependentValues = _parameters.GetDependentValues(95);
-            SetDefaultValues(87, 95, 7, dependentValues[1], dependentValues[0]);
-        }
-
-        /// <summary>
-        ///  Sets the maximum parameters for the mug.
-        /// </summary>
-        private void SetMaxParameters(object sender, EventArgs e)
-        {
-            var dependentValues = _parameters.GetDependentValues(130);
-            SetDefaultValues(105, 130, 10, dependentValues[1], dependentValues[0]);
-        }
 
         /// <summary>
         /// Sets default values.
@@ -135,7 +98,7 @@ namespace MugPlugin.View
         /// <param name="thicknessValue">Mug wall thickness.</param>
         /// <param name="handleLengthValue">Mug handle length.</param>
         /// <param name="handleDiameterValue">Mug handle diameter.</param>
-        private void SetDefaultValues(double diameterValue, double heightValue,
+        private void SetParameters(double diameterValue, double heightValue,
             double thicknessValue, double handleLengthValue, double handleDiameterValue)
         {
             _parameters.SetParameterValue(MugParametersType.Diameter, diameterValue);
@@ -158,7 +121,7 @@ namespace MugPlugin.View
         private bool CheckTextBoxes()
         {
             var isError = true;
-            foreach (var item in 
+            foreach (var item in
                      _textBoxAndError.Where(item => item.Value != ""))
             {
                 isError = false;
@@ -183,6 +146,44 @@ namespace MugPlugin.View
             else
             {
                 MessageBox.Show(@"Fill all required parameters correctly");
+            }
+        }
+
+        /// <summary>
+        /// Set default mug parameters.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SetDefaultParameters(object sender, EventArgs e)
+        {
+            var buttonName = (sender as Button)?.Name;
+
+            switch (buttonName)
+            {
+                case "setParametersMin":
+                {
+                    var dependentValues = _parameters.GetDependentValues(85);
+                    SetParameters(70, 85, 5, dependentValues[1], dependentValues[0]);
+                    break;
+                }
+                case "setParametersAvg":
+                {
+                    var dependentValues = _parameters.GetDependentValues(95);
+                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0]);
+                    break;
+                }
+                case "setParametersMax":
+                {
+                    var dependentValues = _parameters.GetDependentValues(130);
+                    SetParameters(105, 130, 10, dependentValues[1], dependentValues[0]);
+                    break;
+                }
+                default:
+                {
+                    var dependentValues = _parameters.GetDependentValues(95);
+                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0]);
+                    break;
+                }
             }
         }
     }

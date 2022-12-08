@@ -18,7 +18,6 @@ namespace MugPlugin.Model
         /// </summary>
         public MugParameters()
         {
-            //SetDefaultValues(87, 95, 7, dependentValues[1], dependentValues[0]);
             var avgDependentValues = GetDependentValues(95);
             var maxDependentValues = GetDependentValues(130);
             var minDependentValues = GetDependentValues(85);
@@ -58,7 +57,7 @@ namespace MugPlugin.Model
             {
                 return parameter.Value;
             }
-            throw new Exception("Parameter does not exist");
+            throw new ArgumentException("Parameter does not exist.");
         }
 
         public double[] GetDependentValues(double height)
@@ -68,7 +67,6 @@ namespace MugPlugin.Model
                 Math.Round(height * 0.7, 1),
                 Math.Round(height * 0.7 * 0.5, 1),
             };
-
             return dependentValues;
         }
 
@@ -88,7 +86,7 @@ namespace MugPlugin.Model
                 {
                     if (value != dependentValues[1])
                     {
-                        throw new Exception(
+                        throw new ArgumentOutOfRangeException(
                             "Handle diameter depends on the handle length in the ratio (Handle diameter * 0.5)");
                     }
                     break;
@@ -97,7 +95,7 @@ namespace MugPlugin.Model
                 {
                     if (value != dependentValues[0])
                     {
-                        throw new Exception(
+                        throw new ArgumentOutOfRangeException(
                             "Handle length depends on the handle diameter in the ratio (Height * 0.7)");
                     }
                     break;

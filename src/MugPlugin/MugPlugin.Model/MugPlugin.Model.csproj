@@ -44,7 +44,6 @@
     <Compile Include="MugParametersType.cs" />
     <Compile Include="MugParameter.cs" />
     <Compile Include="MugParameters.cs" />
-    <Compile Include="KompasConnector.cs" />
     <Compile Include="Point2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

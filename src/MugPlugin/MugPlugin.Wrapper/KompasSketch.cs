@@ -76,5 +76,6 @@ namespace MugPlugin.Wrapper
         {
             _document2D.ksLineSeg(start.X, start.Y, end.X, end.Y, style);
         }
+
     }
 }

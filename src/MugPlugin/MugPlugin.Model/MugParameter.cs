@@ -14,22 +14,6 @@ namespace MugPlugin.Model
         private double _value;
 
         /// <summary>
-        /// Sets and returns the value of a parameter.
-        /// </summary>
-        public double Value
-        {
-            get => _value;
-            set
-            {
-                if (IsRangeOut(value))
-                {
-                    throw new ArgumentException($"Value must be between {_minValue} and {_maxValue}");
-                }
-                _value = value;
-            }
-        }
-
-        /// <summary>
         /// Get the minimum allowed parameter value.
         /// </summary>
         private readonly double _minValue;
@@ -51,6 +35,23 @@ namespace MugPlugin.Model
             _minValue = minValue;
             _maxValue = maxValue;
             Value = value;
+        }
+
+
+        /// <summary>
+        /// Sets and returns the value of a parameter.
+        /// </summary>
+        public double Value
+        {
+            get => _value;
+            set
+            {
+                if (IsRangeOut(value))
+                {
+                    throw new ArgumentOutOfRangeException($"Value must be between {_minValue} and {_maxValue}");
+                }
+                _value = value;
+            }
         }
 
 

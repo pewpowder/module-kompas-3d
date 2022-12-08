@@ -248,7 +248,7 @@
             this.setParametersAvg.TabIndex = 24;
             this.setParametersAvg.Text = "Average";
             this.setParametersAvg.UseVisualStyleBackColor = true;
-            this.setParametersAvg.Click += new System.EventHandler(this.SetAvgParameters);
+            this.setParametersAvg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetDefaultParameters);
             // 
             // setParametersMax
             // 
@@ -258,7 +258,7 @@
             this.setParametersMax.TabIndex = 3;
             this.setParametersMax.Text = "Maximum";
             this.setParametersMax.UseVisualStyleBackColor = true;
-            this.setParametersMax.Click += new System.EventHandler(this.SetMaxParameters);
+            this.setParametersMax.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetDefaultParameters);
             // 
             // setParametersMin
             // 
@@ -268,7 +268,7 @@
             this.setParametersMin.TabIndex = 25;
             this.setParametersMin.Text = "Minimum";
             this.setParametersMin.UseVisualStyleBackColor = true;
-            this.setParametersMin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetMinParameters);
+            this.setParametersMin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetDefaultParameters);
             // 
             // mugScheme
             // 
@@ -305,7 +305,7 @@
             this.MinimumSize = new System.Drawing.Size(622, 444);
             this.Name = "MainForm";
             this.Text = "MugPlugin";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.SetDefaultParameters);
             this.MugParameters.ResumeLayout(false);
             this.MugParameters.PerformLayout();
             this.DefaultParameters.ResumeLayout(false);

@@ -28,7 +28,7 @@ namespace MugPlugin.Model
             _wrapper.Fillet(mugThickness / 2.5);
         }
 
-        /// 1 - ZY; 2 - ZX; 3 - XY.
+
         private void CreateMugBody(double radius, double height, double thickness)
         {
             // Create mug body.
