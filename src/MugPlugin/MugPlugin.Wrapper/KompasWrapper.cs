@@ -11,14 +11,31 @@ using MugPlugin.Model;
 
 namespace MugPlugin.Wrapper
 {
+    /// <summary>
+    /// Class for launching the library in Kompass-3D.
+    /// </summary>
     public class KompasWrapper
     {
+        /// <summary>
+        /// Kompas-3D object.
+        /// </summary>
         private KompasObject _kompas;
 
+        /// <summary>
+        /// Part of document.
+        /// </summary>
         private ksPart _part;
 
+        /// <summary>
+        /// Document 3D.
+        /// </summary>
         private ksDocument3D _document;
 
+
+        /// <summary>
+        /// Start Kompas-3D.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public void StartKompas()
         {
             try
@@ -47,6 +64,10 @@ namespace MugPlugin.Wrapper
             }
         }
 
+        /// <summary>
+        /// Create kompas 3d document.
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
         public void CreateDocument()
         {
             try
@@ -61,6 +82,9 @@ namespace MugPlugin.Wrapper
             }
         }
 
+        /// <summary>
+        /// Set detail properties: color and name.
+        /// </summary>
         public void SetProperties()
         {
             _part = (ksPart)_document.GetPart((short)Part_Type.pTop_Part);
@@ -69,11 +93,23 @@ namespace MugPlugin.Wrapper
             _part.Update();
         }
 
+        /// <summary>
+        /// Create sketch.
+        /// </summary>
+        /// <param name="type">Sketch plane.</param>
+        /// <param name="offset">Plane offset.</param>
+        /// <returns>Kompas 3d sketch.</returns>
         public KompasSketch CreateSketch(int type, double offset = 0)
         {
             return new KompasSketch(_part, type, offset);
         }
 
+        /// <summary>
+        /// Sketch extrusion.
+        /// </summary>
+        /// <param name="kompasSketch">Kompas sketch.</param>
+        /// <param name="depth">Extrusion depth.</param>
+        /// <param name="type">Extrusion direction.</param>
         public void Extrude(KompasSketch kompasSketch, double depth, bool type)
         {
             ksEntity extrudeEntity = (ksEntity)_part.NewEntity((short)Obj3dType.o3d_baseExtrusion);
@@ -92,6 +128,12 @@ namespace MugPlugin.Wrapper
             extrudeEntity.Create();
         }
 
+        /// <summary>
+        /// Sketch cut extrusion.
+        /// </summary>
+        /// <param name="kompasSketch">Kompas sketch.</param>
+        /// <param name="depth">Extrusion depth.</param>
+        /// <param name="type">Extrusion direction.</param>
         public void CutExtrude(KompasSketch kompasSketch, double depth, bool type)
         {
             ksEntity extrudeEntity = (ksEntity)_part.NewEntity((int)Obj3dType.o3d_cutExtrusion);
@@ -110,6 +152,10 @@ namespace MugPlugin.Wrapper
             extrudeEntity.Create();
         }
 
+        /// <summary>
+        /// Sketch rotation extrusion.
+        /// </summary>
+        /// <param name="kompasSketch">Kompas sketch.</param>
         public void ExtrudeRotation(KompasSketch kompasSketch)
         {
             ksEntity bossRotated = _part.NewEntity((short)Obj3dType.o3d_bossRotated);
@@ -121,9 +167,9 @@ namespace MugPlugin.Wrapper
         }
 
         /// <summary>
-        /// Проводит операцию скругления на ребрах.
+        /// Rounds edges.
         /// </summary>
-        /// <param name="radius"> Угол скругления. </param>
+        /// <param name="radius">Rounded angle.</param>
         public void Fillet(double radius)
         {
             var roundedEdges = GetCylinderFaces();
@@ -142,9 +188,9 @@ namespace MugPlugin.Wrapper
         }
 
         /// <summary>
-        /// Возвращает все цилиндрические грани детали.
+        /// Returns all cylindrical faces of a part.
         /// </summary>
-        /// <returns> Список цилиндрических граней.</returns>
+        /// <returns>List of Cylindrical Faces.</returns>
         private List<ksFaceDefinition> GetCylinderFaces()
         {
             var body = (ksBody)_part.GetMainBody();

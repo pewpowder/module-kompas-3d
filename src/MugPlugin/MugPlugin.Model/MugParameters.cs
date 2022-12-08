@@ -41,8 +41,8 @@ namespace MugPlugin.Model
         /// <summary>
         /// Sets parameter value.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="value"></param>
+        /// <param name="type">Mug parameter type.</param>
+        /// <param name="value">Parameter value.</param>
         public void SetParameterValue(MugParametersType type, double value)
         {
             var parameter = _parameters[type];
@@ -61,6 +61,12 @@ namespace MugPlugin.Model
             return _parameters[type].Value;
         }
 
+
+        /// <summary>
+        /// Get Dependent Parameters.
+        /// </summary>
+        /// <param name="height">Mug height.</param>
+        /// <returns></returns>
         public double[] GetDependentValues(double height)
         {
             var dependentValues = new double[]

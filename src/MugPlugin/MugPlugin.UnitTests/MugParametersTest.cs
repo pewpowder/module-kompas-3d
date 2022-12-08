@@ -7,15 +7,9 @@ namespace MugPlugin.UnitTests;
 [TestFixture]
 public class MugParametersTest
 {
-    //const double height = 100;
-    //const double firstExpectedValue = 100 * 0.7;
-    //const double secondExpectedValue = 100 * 0.7 * 0.5;
-
-    //var actual = _parameters.GetDependentValues(height);
-
-    //Assert.That(actual[0], Is.EqualTo(firstExpectedValue));
-    //Assert.That(actual[1], Is.EqualTo(secondExpectedValue));
-
+    /// <summary>
+    /// Mug parameters.
+    /// </summary>
     private readonly MugParameters _parameters = new MugParameters();
 
     [Test(Description = "Positive test set dependent parameter values.")]

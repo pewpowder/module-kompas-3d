@@ -8,10 +8,21 @@ namespace MugPlugin.Model
 {
     public class Point2D: IEquatable<Point2D>
     {
+        /// <summary>
+        /// Point on x-axis.
+        /// </summary>
         public double X { get; set; }
 
+        /// <summary>
+        /// Point on y-axis.
+        /// </summary>
         public double Y { get; set; }
 
+        /// <summary>
+        /// Point2D constructor.
+        /// </summary>
+        /// <param name="x">Point on x-axis.</param>
+        /// <param name="y">Point on y-axis.</param>
         public Point2D(double x, double y)
         {
             X = x;
@@ -19,11 +30,11 @@ namespace MugPlugin.Model
         }
 
         /// <summary>
-        /// Проверка на равенство объектов класса.
+        /// Checking for equality of class objects.
         /// </summary>
-        /// <param name="expected">Сравниваемый объект.</param>
-        /// <returns>Возвращает true, если элементы равны,
-        /// false - в обратном случае.</returns>
+        /// <param name="expected">Compared object.</param>
+        /// <returns>Returns true if the elements are equal,
+        /// false - otherwise.</returns>
         public bool Equals(Point2D expected)
         {
             return expected != null &&

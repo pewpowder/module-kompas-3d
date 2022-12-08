@@ -23,7 +23,9 @@ namespace MugPlugin.View
         /// </summary>
         private readonly Dictionary<TextBox, MugParametersType> _textBoxToParameterType;
 
-
+        /// <summary>
+        /// Main form constructor.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -72,11 +74,6 @@ namespace MugPlugin.View
                 _textBoxAndError[textBox] = error.ParamName;
                 errorProvider.SetError(textBox, error.ParamName);
             }
-        }
-
-        private string ReplaceDotWithComma(string value)
-        {
-            return value.Replace('.', ',');
         }
 
         /// <summary>
