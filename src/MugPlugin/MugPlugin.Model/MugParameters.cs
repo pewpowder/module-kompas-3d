@@ -35,6 +35,10 @@ namespace MugPlugin.Model
                     MugParametersType.HandleLength,
                     new MugParameter(avgDependentValues[1], minDependentValues[1], maxDependentValues[1])
                 },
+                {
+                    MugParametersType.PocketHeight,
+                    new MugParameter(avgDependentValues[2], minDependentValues[2], maxDependentValues[2])
+                }
             };
         }
 
@@ -72,7 +76,8 @@ namespace MugPlugin.Model
             var dependentValues = new double[]
             {
                 Math.Round(height * 0.7, 1),
-                Math.Round(height * 0.7 * 0.5, 1)
+                Math.Round(height * 0.7 * 0.5, 1),
+                Math.Round(height * 0.3)
             };
             return dependentValues;
         }
@@ -93,7 +98,8 @@ namespace MugPlugin.Model
                 if (value != dependentValues[1])
                 {
                     throw new ArgumentOutOfRangeException(
-                        "Handle diameter depends on the handle length in the ratio (Handle diameter * 0.5)");
+                        "Handle length depends on the handle diameter in the ratio (Height * 0.7)");
+                    
                 }
             }
 
@@ -102,7 +108,16 @@ namespace MugPlugin.Model
                 if (value != dependentValues[0])
                 {
                     throw new ArgumentOutOfRangeException(
-                        "Handle length depends on the handle diameter in the ratio (Height * 0.7)");
+                        "Handle diameter depends on the mug height in the ratio (Handle diameter * 0.5)");
+                }
+            }
+
+            if (type == MugParametersType.PocketHeight)
+            {
+                if (value != dependentValues[2])
+                {
+                    throw new ArgumentOutOfRangeException(
+                        "Pocket height depends on the mug height in the ratio (Height * 0.3)");
                 }
             }
         }

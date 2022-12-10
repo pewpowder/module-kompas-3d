@@ -43,7 +43,7 @@ public class MugParameterTest
         var actual = Assert.Throws<ArgumentOutOfRangeException>(() => new MugParameter(value, minValue, maxValue));
         var expected = $"Value must be between {minValue} and {maxValue}";
 
-        Assert.That(actual?.ParamName, Is.EqualTo(expected));
+        Assert.That(actual?.GetType(), Is.EqualTo(typeof(ArgumentOutOfRangeException)));
     }
 
 }

@@ -33,7 +33,7 @@ namespace MugPlugin.Wrapper
         /// KompasSketch constructor.
         /// </summary>
         /// <param name="part"></param>
-        /// <param name="type">1 - ZY; 2 - ZX; 3 - XY.</param>
+        /// <param name="type">1 - YZ; 2 - XZ; 3 - XY.</param>
         public KompasSketch(ksPart part, int type, double offset = 0)
         {
             ksEntity plane = (ksEntity)part.NewEntity((short)Obj3dType.o3d_planeOffset);
@@ -90,6 +90,5 @@ namespace MugPlugin.Wrapper
         {
             _document2D.ksLineSeg(start.X, start.Y, end.X, end.Y, style);
         }
-
     }
 }

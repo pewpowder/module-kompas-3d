@@ -34,6 +34,11 @@ namespace MugPlugin.Model
         /// <summary>
         /// Mug handle diameter.
         /// </summary>
-        HandleDiameter
+        HandleDiameter,
+
+        /// <summary>
+        /// Cookies pocket height.
+        /// </summary>
+        PocketHeight,
     }
 }

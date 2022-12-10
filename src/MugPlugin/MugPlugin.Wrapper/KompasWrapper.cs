@@ -134,18 +134,11 @@ namespace MugPlugin.Wrapper
         /// <param name="kompasSketch">Kompas sketch.</param>
         /// <param name="depth">Extrusion depth.</param>
         /// <param name="type">Extrusion direction.</param>
-        public void CutExtrude(KompasSketch kompasSketch, double depth, bool type)
+        public void CutExtrude(KompasSketch kompasSketch, double depth)
         {
             ksEntity extrudeEntity = (ksEntity)_part.NewEntity((int)Obj3dType.o3d_cutExtrusion);
             ksCutExtrusionDefinition extrudeDefinition = (ksCutExtrusionDefinition)extrudeEntity.GetDefinition();
-            if (type == false)
-            {
-                extrudeDefinition.directionType = (short)Direction_Type.dtReverse;
-            }
-            else
-            {
-                extrudeDefinition.directionType = (short)Direction_Type.dtNormal;
-            }
+            extrudeDefinition.directionType = (short)Direction_Type.dtNormal;
             extrudeDefinition.SetSketch(kompasSketch.Sketch);
             ksExtrusionParam extrudeParam = (ksExtrusionParam)extrudeDefinition.ExtrusionParam();
             extrudeParam.depthNormal = depth;
@@ -158,13 +151,28 @@ namespace MugPlugin.Wrapper
         /// <param name="kompasSketch">Kompas sketch.</param>
         public void ExtrudeRotation(KompasSketch kompasSketch)
         {
-            ksEntity bossRotated = _part.NewEntity((short)Obj3dType.o3d_bossRotated);
-            ksBossRotatedDefinition bossRotatedDefinition = bossRotated.GetDefinition();
+            ksEntity bossRotated = (ksEntity)_part.NewEntity((short)Obj3dType.o3d_bossRotated);
+            ksBossRotatedDefinition bossRotatedDefinition = (ksBossRotatedDefinition)bossRotated.GetDefinition();
             bossRotatedDefinition.directionType = (short)Direction_Type.dtNormal;
             bossRotatedDefinition.SetSketch(kompasSketch.Sketch);
             bossRotatedDefinition.SetSideParam(true, 180);
             bossRotated.Create();
         }
+
+        /// <summary>
+        /// Sketch rotation extrusion.
+        /// </summary>
+        /// <param name="kompasSketch">Kompas sketch.</param>
+        public void CutExtrudeRotation(KompasSketch kompasSketch, int angle)
+        {
+            ksEntity bossRotated = (ksEntity)_part.NewEntity((short)Obj3dType.o3d_cutRotated);
+            ksCutRotatedDefinition bossRotatedDefinition = (ksCutRotatedDefinition)bossRotated.GetDefinition();
+            bossRotatedDefinition.directionType = (short)Direction_Type.dtNormal;
+            bossRotatedDefinition.SetSketch(kompasSketch.Sketch);
+            bossRotatedDefinition.SetSideParam(true, angle);
+            bossRotated.Create();
+        }
+
 
         /// <summary>
         /// Rounds edges.

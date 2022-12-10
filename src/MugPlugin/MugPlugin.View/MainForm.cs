@@ -36,7 +36,8 @@ namespace MugPlugin.View
                 { height, MugParametersType.Height },
                 { thickness, MugParametersType.Thickness },
                 { handleDiameter, MugParametersType.HandleDiameter },
-                { handleLength, MugParametersType.HandleLength }
+                { handleLength, MugParametersType.HandleLength },
+                { pocketHeight, MugParametersType.PocketHeight },
             };
             _textBoxAndError = new Dictionary<TextBox, string>
             {
@@ -44,7 +45,8 @@ namespace MugPlugin.View
                 { height, "" },
                 { thickness, "" },
                 { handleDiameter, "" },
-                { handleLength, "" }
+                { handleLength, "" },
+                { pocketHeight, "" }
             };
         }
 
@@ -76,16 +78,6 @@ namespace MugPlugin.View
             }
         }
 
-        /// <summary>
-        /// Clears a text field.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClearTextBox(object sender, MouseEventArgs e)
-        {
-            ((TextBox)sender).Text = "";
-        }
-
 
         /// <summary>
         /// Sets default values.
@@ -96,19 +88,21 @@ namespace MugPlugin.View
         /// <param name="handleLengthValue">Mug handle length.</param>
         /// <param name="handleDiameterValue">Mug handle diameter.</param>
         private void SetParameters(double diameterValue, double heightValue,
-            double thicknessValue, double handleLengthValue, double handleDiameterValue)
+            double thicknessValue, double handleLengthValue, double handleDiameterValue, double pocketHeightValue)
         {
             _parameters.SetParameterValue(MugParametersType.Diameter, diameterValue);
             _parameters.SetParameterValue(MugParametersType.Height, heightValue);
             _parameters.SetParameterValue(MugParametersType.Thickness, thicknessValue);
             _parameters.SetParameterValue(MugParametersType.HandleDiameter, handleDiameterValue);
             _parameters.SetParameterValue(MugParametersType.HandleLength, handleLengthValue);
+            _parameters.SetParameterValue(MugParametersType.PocketHeight, pocketHeightValue);
 
             diameter.Text = diameterValue.ToString();
             height.Text = heightValue.ToString();
             thickness.Text = thicknessValue.ToString();
             handleDiameter.Text = handleDiameterValue.ToString();
             handleLength.Text = handleLengthValue.ToString();
+            pocketHeight.Text = pocketHeightValue.ToString();
         }
 
         /// <summary>
@@ -160,25 +154,25 @@ namespace MugPlugin.View
                 case "setParametersMin":
                 {
                     var dependentValues = _parameters.GetDependentValues(85);
-                    SetParameters(70, 85, 5, dependentValues[1], dependentValues[0]);
+                    SetParameters(70, 85, 5, dependentValues[1], dependentValues[0], dependentValues[2]);
                     break;
                 }
                 case "setParametersAvg":
                 {
                     var dependentValues = _parameters.GetDependentValues(95);
-                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0]);
+                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0], dependentValues[2]);
                     break;
                 }
                 case "setParametersMax":
                 {
                     var dependentValues = _parameters.GetDependentValues(130);
-                    SetParameters(105, 130, 10, dependentValues[1], dependentValues[0]);
+                    SetParameters(105, 130, 10, dependentValues[1], dependentValues[0], dependentValues[2]);
                     break;
                 }
                 default:
                 {
                     var dependentValues = _parameters.GetDependentValues(95);
-                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0]);
+                    SetParameters(87, 95, 7, dependentValues[1], dependentValues[0], dependentValues[2]);
                     break;
                 }
             }

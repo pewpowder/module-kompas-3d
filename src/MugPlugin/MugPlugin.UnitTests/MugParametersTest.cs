@@ -18,9 +18,11 @@ public class MugParametersTest
         // Set dependent value. 95 - its height
         var expectedHandleDiameter = _parameters.GetParameterValue(MugParametersType.HandleDiameter);
         var expectedHandleLength = _parameters.GetParameterValue(MugParametersType.HandleLength);
+        var expectedPocketHeight = _parameters.GetParameterValue(MugParametersType.PocketHeight);
 
         _parameters.SetParameterValue(MugParametersType.HandleDiameter, expectedHandleDiameter);
         _parameters.SetParameterValue(MugParametersType.HandleLength, expectedHandleLength);
+        _parameters.SetParameterValue(MugParametersType.PocketHeight, expectedPocketHeight);
 
         Assert.Multiple(() =>
         {
@@ -28,27 +30,27 @@ public class MugParametersTest
                 Is.EqualTo(expectedHandleDiameter));
             Assert.That(_parameters.GetParameterValue(MugParametersType.HandleLength),
                 Is.EqualTo(expectedHandleLength));
+            Assert.That(_parameters.GetParameterValue(MugParametersType.PocketHeight),
+                Is.EqualTo(expectedPocketHeight));
         });
     }
 
     [Test(Description = "Negative test set dependent parameter values.")]
     public void TestSetDependentParameter_IncorrectValues()
     {
-        const string expectedHandleLengthException =
-            "Handle diameter depends on the handle length in the ratio (Handle diameter * 0.5)";
-        const string expectedHandleDiameterException =
-            "Handle length depends on the handle diameter in the ratio (Height * 0.7)";
-       
-
         var actualHandleDiameterException = Assert.Throws<ArgumentOutOfRangeException>(() =>
             _parameters.SetParameterValue(MugParametersType.HandleDiameter, 20));
         var actualHandleLengthException = Assert.Throws<ArgumentOutOfRangeException>(() =>
             _parameters.SetParameterValue(MugParametersType.HandleLength, 20));
+        var actualPocketHeightException = Assert.Throws<ArgumentOutOfRangeException>(() =>
+            _parameters.SetParameterValue(MugParametersType.PocketHeight, 20));
+
 
         Assert.Multiple(() =>
         {
-            Assert.That(actualHandleDiameterException?.ParamName, Is.EqualTo(expectedHandleDiameterException));
-            Assert.That(actualHandleLengthException?.ParamName, Is.EqualTo(expectedHandleLengthException));
+            Assert.That(actualHandleDiameterException?.GetType(), Is.EqualTo(typeof(ArgumentOutOfRangeException)));
+            Assert.That(actualHandleLengthException?.GetType(), Is.EqualTo(typeof(ArgumentOutOfRangeException)));
+            Assert.That(actualPocketHeightException?.GetType(), Is.EqualTo(typeof(ArgumentOutOfRangeException)));
         });
     }
 }
