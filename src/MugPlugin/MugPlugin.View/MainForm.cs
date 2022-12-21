@@ -177,5 +177,11 @@ namespace MugPlugin.View
                 }
             }
         }
+
+        private void ClearField(object sender, EventArgs e)
+        { 
+            var textBox = sender as TextBox;
+            textBox.Text = "";
+        }
     }
 }

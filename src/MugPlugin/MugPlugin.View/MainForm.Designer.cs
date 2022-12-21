@@ -118,7 +118,8 @@
             this.pocketHeight.Name = "pocketHeight";
             this.pocketHeight.Size = new System.Drawing.Size(98, 20);
             this.pocketHeight.TabIndex = 24;
-            this.pocketHeight.Leave += new System.EventHandler(this.SetParameter);
+            this.pocketHeight.Click += new System.EventHandler(this.ClearField);
+            this.pocketHeight.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // heightRangeLabel
             // 
@@ -222,7 +223,8 @@
             this.handleDiameter.Name = "handleDiameter";
             this.handleDiameter.Size = new System.Drawing.Size(98, 20);
             this.handleDiameter.TabIndex = 4;
-            this.handleDiameter.Leave += new System.EventHandler(this.SetParameter);
+            this.handleDiameter.Click += new System.EventHandler(this.ClearField);
+            this.handleDiameter.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // handleLength
             // 
@@ -231,7 +233,8 @@
             this.handleLength.Name = "handleLength";
             this.handleLength.Size = new System.Drawing.Size(98, 20);
             this.handleLength.TabIndex = 3;
-            this.handleLength.Leave += new System.EventHandler(this.SetParameter);
+            this.handleLength.Click += new System.EventHandler(this.ClearField);
+            this.handleLength.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // thickness
             // 
@@ -240,7 +243,8 @@
             this.thickness.Name = "thickness";
             this.thickness.Size = new System.Drawing.Size(98, 20);
             this.thickness.TabIndex = 2;
-            this.thickness.Leave += new System.EventHandler(this.SetParameter);
+            this.thickness.Click += new System.EventHandler(this.ClearField);
+            this.thickness.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // height
             // 
@@ -249,7 +253,8 @@
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(98, 20);
             this.height.TabIndex = 1;
-            this.height.Leave += new System.EventHandler(this.SetParameter);
+            this.height.Click += new System.EventHandler(this.ClearField);
+            this.height.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // diameter
             // 
@@ -258,7 +263,8 @@
             this.diameter.Name = "diameter";
             this.diameter.Size = new System.Drawing.Size(98, 20);
             this.diameter.TabIndex = 0;
-            this.diameter.Leave += new System.EventHandler(this.SetParameter);
+            this.diameter.Click += new System.EventHandler(this.ClearField);
+            this.diameter.TextChanged += new System.EventHandler(this.SetParameter);
             // 
             // DefaultParameters
             // 
