@@ -19,7 +19,7 @@ public class MugParameterTest
 
 
     [Test(Description = "Negative getter test. Value less then minValue")]
-    public void TestValueMinValueGet_IncorrectValue()
+    public void TestMinValueSet_IncorrectValue()
     {
         const double minValue = 10;
         const double maxValue = 15;
@@ -34,7 +34,7 @@ public class MugParameterTest
 
 
     [Test(Description = "Negative getter test. Value bigger then maxValue")]
-    public void TestValueMaxValueGet_IncorrectValue()
+    public void TestValueMaxSet_IncorrectValue()
     {
         const double minValue = 10;
         const double maxValue = 15;

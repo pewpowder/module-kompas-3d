@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MugPlugin.Wrapper;
+﻿using MugPlugin.Model;
 
-namespace MugPlugin.Model
+namespace MugPlugin.Wrapper
 {
     /// <summary>
     /// Class for constructing a mug.

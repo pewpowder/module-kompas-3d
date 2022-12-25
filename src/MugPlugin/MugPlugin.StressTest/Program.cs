@@ -1,40 +1,38 @@
 ﻿using System.Diagnostics;
+using System;
 using System.IO;
-using Microsoft.VisualBasic.Devices;
+using System.Globalization;
+using System.Xml.Linq;
 using MugPlugin.Model;
+using MugPlugin.Wrapper;
+using MugPlugin.Wrapper;
+using System.Linq;
 
-namespace MugPlugin.StressTest
+var builder = new MugBuilder();
+var parameters = new MugParameters();
+var streamWriter = new StreamWriter($"log.txt", true);
+
+long countDetail = 1;
+builder.BuildMug(parameters);
+
+using var myProcess = Process.GetProcessesByName("kStudy").FirstOrDefault();
+do
 {
-    /// <summary>
-    /// Stress test class.
-    /// </summary>
-    public class Program
+    if (myProcess is { HasExited: false })
     {
-        /// <summary>
-        /// The main class method for running load testing.
-        /// </summary>
-        private static void Main()
-        {
-            var stopWatch = new Stopwatch();
-            stopWatch.Start();
-            var mugBuilder = new MugBuilder();
-            var mugParameters = new MugParameters();
-            var streamWriter = new StreamWriter($"StressTest.txt", true);
-            var modelCounter = 0;
-            var computerInfo = new ComputerInfo();
-            ulong usedMemory = 0;
-            while (usedMemory * 0.96 <= computerInfo.TotalPhysicalMemory)
-            {
-                mugBuilder.BuildMug(mugParameters);
-                usedMemory = (computerInfo.TotalPhysicalMemory - computerInfo.AvailablePhysicalMemory);
-                streamWriter.WriteLine(
-                    $"{++modelCounter}\t{stopWatch.Elapsed:hh\\:mm\\:ss}\t{usedMemory}");
-                streamWriter.Flush();
-            }
-            stopWatch.Stop();
-            streamWriter.WriteLine("END");
-            streamWriter.Close();
-            streamWriter.Dispose();
-        }
+        builder.BuildMug(parameters);
+        countDetail++;
+        myProcess.Refresh();
+        Console.WriteLine();
+        Console.WriteLine($"{myProcess} -");
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine($"  Details Count        : {countDetail}");
+        Console.WriteLine($"  Physical memory usage     : {myProcess.WorkingSet64}");
+        Console.WriteLine($"  User processor time       : {myProcess.UserProcessorTime}");
+        streamWriter.WriteLine($"{countDetail} {myProcess.WorkingSet64} {myProcess.UserProcessorTime}");
+        streamWriter.Flush();
+
+        Console.WriteLine(myProcess.Responding ? "Status = Running" : "Status = Not Responding");
     }
 }
+while (countDetail != 2000);

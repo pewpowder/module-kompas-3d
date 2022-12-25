@@ -13,9 +13,8 @@ public class MugParametersTest
     private readonly MugParameters _parameters = new MugParameters();
 
     [Test(Description = "Positive test set dependent parameter values.")]
-    public void TestSetDependentParameter_CorrectValues()
+    public void TestDependentParameterSet_CorrectValues()
     {
-        // Set dependent value. 95 - its height
         var expectedHandleDiameter = _parameters.GetParameterValue(MugParametersType.HandleDiameter);
         var expectedHandleLength = _parameters.GetParameterValue(MugParametersType.HandleLength);
         var expectedPocketHeight = _parameters.GetParameterValue(MugParametersType.PocketHeight);
@@ -36,7 +35,7 @@ public class MugParametersTest
     }
 
     [Test(Description = "Negative test set dependent parameter values.")]
-    public void TestSetDependentParameter_IncorrectValues()
+    public void TestDependentParameterSet_IncorrectValues()
     {
         var actualHandleDiameterException = Assert.Throws<ArgumentOutOfRangeException>(() =>
             _parameters.SetParameterValue(MugParametersType.HandleDiameter, 20));

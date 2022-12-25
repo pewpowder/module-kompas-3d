@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using MugPlugin.Model;
+using MugPlugin.Wrapper;
 
 namespace MugPlugin.View
 {
@@ -127,7 +128,7 @@ namespace MugPlugin.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void build_click(object sender, EventArgs e)
+        private void Build(object sender, EventArgs e)
         {
             if (CheckTextBoxes())
             {
@@ -178,6 +179,11 @@ namespace MugPlugin.View
             }
         }
 
+        /// <summary>
+        /// Clear text feild.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearField(object sender, EventArgs e)
         { 
             var textBox = sender as TextBox;

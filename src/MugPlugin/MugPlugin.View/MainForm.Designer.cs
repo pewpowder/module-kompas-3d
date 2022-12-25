@@ -135,7 +135,7 @@
             // 
             this.handleLengthRangeLabel.AutoSize = true;
             this.handleLengthRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleLengthRangeLabel.Location = new System.Drawing.Point(109, 201);
+            this.handleLengthRangeLabel.Location = new System.Drawing.Point(109, 160);
             this.handleLengthRangeLabel.Name = "handleLengthRangeLabel";
             this.handleLengthRangeLabel.Size = new System.Drawing.Size(185, 15);
             this.handleLengthRangeLabel.TabIndex = 21;
@@ -145,7 +145,7 @@
             // 
             this.handleDiameterRangeLabel.AutoSize = true;
             this.handleDiameterRangeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(109, 160);
+            this.handleDiameterRangeLabel.Location = new System.Drawing.Point(109, 199);
             this.handleDiameterRangeLabel.Name = "handleDiameterRangeLabel";
             this.handleDiameterRangeLabel.Size = new System.Drawing.Size(168, 15);
             this.handleDiameterRangeLabel.TabIndex = 19;
@@ -164,7 +164,7 @@
             // handleLengthLabel
             // 
             this.handleLengthLabel.AutoSize = true;
-            this.handleLengthLabel.Location = new System.Drawing.Point(6, 180);
+            this.handleLengthLabel.Location = new System.Drawing.Point(6, 139);
             this.handleLengthLabel.Name = "handleLengthLabel";
             this.handleLengthLabel.Size = new System.Drawing.Size(84, 15);
             this.handleLengthLabel.TabIndex = 15;
@@ -173,7 +173,7 @@
             // handleDiameterLabel
             // 
             this.handleDiameterLabel.AutoSize = true;
-            this.handleDiameterLabel.Location = new System.Drawing.Point(6, 139);
+            this.handleDiameterLabel.Location = new System.Drawing.Point(6, 178);
             this.handleDiameterLabel.Name = "handleDiameterLabel";
             this.handleDiameterLabel.Size = new System.Drawing.Size(99, 15);
             this.handleDiameterLabel.TabIndex = 13;
@@ -219,7 +219,7 @@
             // handleDiameter
             // 
             this.handleDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.handleDiameter.Location = new System.Drawing.Point(3, 157);
+            this.handleDiameter.Location = new System.Drawing.Point(3, 196);
             this.handleDiameter.Name = "handleDiameter";
             this.handleDiameter.Size = new System.Drawing.Size(98, 20);
             this.handleDiameter.TabIndex = 4;
@@ -229,7 +229,7 @@
             // handleLength
             // 
             this.handleLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.handleLength.Location = new System.Drawing.Point(3, 198);
+            this.handleLength.Location = new System.Drawing.Point(3, 157);
             this.handleLength.Name = "handleLength";
             this.handleLength.Size = new System.Drawing.Size(98, 20);
             this.handleLength.TabIndex = 3;
@@ -330,7 +330,7 @@
             this.build.TabIndex = 26;
             this.build.Text = "Build";
             this.build.UseVisualStyleBackColor = true;
-            this.build.Click += new System.EventHandler(this.build_click);
+            this.build.Click += new System.EventHandler(this.Build);
             // 
             // errorProvider
             // 
