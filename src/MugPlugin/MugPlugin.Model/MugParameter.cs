@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MugPlugin.Model
 {
+    //TODO: XML
     public class MugParameter
     {
         /// <summary>
