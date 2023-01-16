@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MugPlugin.Model
 {
-    //TODO: XML
+    /// <summary>
+    /// A class that stores a point in 2D space.
+    /// </summary>
     public class Point2D: IEquatable<Point2D>
     {
         /// <summary>

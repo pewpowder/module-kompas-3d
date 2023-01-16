@@ -7,6 +7,9 @@ using MugPlugin.Wrapper;
 
 namespace MugPlugin.View
 {
+    /// <summary>
+    /// Class for interacting with the form.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -88,6 +91,7 @@ namespace MugPlugin.View
         /// <param name="thicknessValue">Mug wall thickness.</param>
         /// <param name="handleLengthValue">Mug handle length.</param>
         /// <param name="handleDiameterValue">Mug handle diameter.</param>
+        /// <param name="pocketHeightValue">Mug pocket height.</param>
         private void SetParameters(double diameterValue, double heightValue,
             double thicknessValue, double handleLengthValue, double handleDiameterValue, double pocketHeightValue)
         {
@@ -180,7 +184,7 @@ namespace MugPlugin.View
         }
 
         /// <summary>
-        /// Clear text feild.
+        /// Clear text field.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

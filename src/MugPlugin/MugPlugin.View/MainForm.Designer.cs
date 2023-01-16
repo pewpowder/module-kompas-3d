@@ -316,6 +316,7 @@
             this.mugScheme.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mugScheme.BackgroundImage")));
             this.mugScheme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mugScheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mugScheme.InitialImage = null;
             this.mugScheme.Location = new System.Drawing.Point(322, 12);
             this.mugScheme.Name = "mugScheme";
             this.mugScheme.Size = new System.Drawing.Size(319, 327);

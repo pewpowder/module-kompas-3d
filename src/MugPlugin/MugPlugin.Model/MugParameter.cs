@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MugPlugin.Model
 {
-    //TODO: XML
+    /// <summary>
+    /// Class with one mug parameter.
+    /// </summary>
     public class MugParameter
     {
         /// <summary>
