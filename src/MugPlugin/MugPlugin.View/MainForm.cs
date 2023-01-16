@@ -141,7 +141,8 @@ namespace MugPlugin.View
             }
             else
             {
-                MessageBox.Show(@"Fill all required parameters correctly");
+                MessageBox.Show(@"Fill all required parameters correctly", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
